@@ -72,12 +72,28 @@
       section {
         padding: 200px 0;
       }
+
+      #toggle:checked + ul {
+        height: auto !important;
+        transform: scaleY(1) !important;
+      }
+
+      .scale-y-0 {
+        transform: scaleY(0);
+      }
+
+      @media(min-width: 768px) {
+        .md\:scale-y-1 {
+          transform: scaleY(1);
+        }
+      }
     </style>
 
     <!-- HERO -->
     <div id="home" class="hero" style="background-color: var(--red50);">
       <header class="flex mb-12 py-4 px-8 justify-between items-center">
         <svg
+        class="align-self-start"
           width="92"
           height="20"
           viewBox="0 0 92 20"
@@ -90,24 +106,59 @@
           />
         </svg>
         <nav>
-          <ul class="list-unstyled flex items-center">
-            <li>
-              <a href="#home" class="mr-5 color-dark">Home</a>
+          <label for="toggle" class="fixed top-15 right-15 md:display-none font-2xl">&#9776;</label>
+          <input
+            style="clip: rect(1px 1px 1px 1px)"
+            type="checkbox"
+            class="w-0 h-0 absolute m-0 p-0 md:display-none border-none"
+            name="menu"
+            id="toggle"
+          />
+          <ul
+            style="transition: transform 0.2s ease-in-out; transform-origin: top;"
+            class="list-unstyled flex h-0 md:h-auto flex-column md:flex-row scale-y-0 md:scale-y-1 justify-center md:items-center"
+          >
+            <li class="my-3 border-bottom md:border-none md:my-0">
+              <a
+                href="#home"
+                class="mr-5 color-dark "
+                >Home</a
+              >
             </li>
-            <li>
-              <a href="#designs" class="mr-5 color-dark">Designs</a>
+            <li class="my-3 border-bottom md:border-none md:my-0">
+              <a
+                href="#designs"
+                class="mr-5 color-dark "
+                >Designs</a
+              >
             </li>
-            <li>
-              <a href="#how-it-works" class="mr-5 color-dark">How it Works</a>
+            <li class="my-3 border-bottom md:border-none md:my-0">
+              <a
+                href="#how-it-works"
+                class="mr-5 color-dark "
+                >How it Works</a
+              >
             </li>
-            <li>
-              <a href="#pricing" class="mr-5 color-dark">Pricing</a>
+            <li class="my-3 border-bottom md:border-none md:my-0">
+              <a
+                href="#pricing"
+                class="mr-5 color-dark "
+                >Pricing</a
+              >
             </li>
+            <li class="my-3 border-bottom md:border-none md:my-0">
+              <a
+                href="#contact"
+                class="mr-5 color-dark "
+                >Contact</a
+              >
+            </li class="my-3 border-bottom md:border-none md:my-0">
             <li>
-              <a href="#contact" class="mr-5 color-dark">Contact</a>
-            </li>
-            <li>
-              <button class="mr-5 border-none color-light">Log In</button>
+              <button
+                class="mr-5 border-none color-light "
+              >
+                Log In
+              </button>
             </li>
             <li>
               <button class="border-none bg-light color-red50 px-4 py-2">
